@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.kodeco.android.countryinfo.repositories.CountryRepository
+import com.kodeco.android.countryinfo.ui.components.SplashScreen
 import com.kodeco.android.countryinfo.ui.screens.Screen
 import com.kodeco.android.countryinfo.ui.screens.about.AboutScreen
 import com.kodeco.android.countryinfo.ui.screens.countrydetails.CountryDetailsScreen
@@ -21,7 +22,12 @@ fun CountryInfoNavHost(
 ) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Screen.List.path) {
+    NavHost(navController = navController, startDestination = Screen.Spash.path) {
+        composable(Screen.Spash.path) {
+            SplashScreen {
+                navController.navigate(Screen.List.path)
+            }
+        }
         composable(Screen.List.path) {
             CountryListScreen(
                 viewModel = viewModel(
