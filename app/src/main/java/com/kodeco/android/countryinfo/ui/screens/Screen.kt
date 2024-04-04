@@ -14,4 +14,8 @@ sealed interface Screen {
     data object About : Screen {
         override val path = "about"
     }
+
+    data object Spash: Screen {
+        override val path = "splash"
+    }
 }

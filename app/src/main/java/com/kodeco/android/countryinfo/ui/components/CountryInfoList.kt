@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.kodeco.android.countryinfo.R
 import com.kodeco.android.countryinfo.models.Country
 
@@ -18,6 +19,7 @@ fun CountryInfoList(
     countries: List<Country>,
     onRefreshTap: () -> Unit,
     onCountryRowTap: (countryIndex: Int) -> Unit,
+    onSetAsFavorite: (country: Country) -> Unit,
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -34,8 +36,9 @@ fun CountryInfoList(
                 onTap = {
                     onCountryRowTap(index)
                 },
-                // TODO - OPTIONAL: wire up favorite listener
+                onSetAsFavorite = onSetAsFavorite
             )
         }
     }
 }
+
